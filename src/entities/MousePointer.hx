@@ -10,11 +10,11 @@ class MousePointer extends Entity {
 	public function new ( x : Int, y : Int ) : Void {
 		super(x, y);
 		
-		image = Image.createCircle(10, 0xffffff);
+		image = Image.createCircle(5, 0xffffff);
 		image.centerOrigin();
 		graphic = image;
 		
-		setHitbox(20, 20, 0, 0);
+		setHitbox(10, 10, 0, 0);
 		centerOrigin();
 		type = "pointer";
 	}
@@ -23,5 +23,23 @@ class MousePointer extends Entity {
 		moveTo(Input.mouseX, Input.mouseY);
 		
 		super.update();
+	}
+	
+	public function handle ( option : Option ) : Bool {
+		var e : Entity = collideWith(option, x, y);
+		
+		if (e != null ) {
+			return true;
+		} else {
+			return false;
+		}
+		
+		
+			
+		/*var e : Entity = collide( "obstacle", x, y );
+		if ( e != null ) {
+			var o : Obstacle = cast( e, Obstacle );
+			this.destroy();
+		}*/
 	}
 }
