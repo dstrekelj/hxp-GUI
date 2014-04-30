@@ -33,13 +33,5 @@ class MousePointer extends Entity {
 		} else {
 			return false;
 		}
-		
-		
-			
-		/*var e : Entity = collide( "obstacle", x, y );
-		if ( e != null ) {
-			var o : Obstacle = cast( e, Obstacle );
-			this.destroy();
-		}*/
 	}
 }
