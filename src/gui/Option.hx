@@ -1,4 +1,4 @@
-package entities;
+package gui;
 
 import com.haxepunk.Entity;
 import com.haxepunk.graphics.Text;

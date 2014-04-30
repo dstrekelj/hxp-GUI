@@ -4,14 +4,14 @@ import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 
 class GameScene extends Scene {
-	private var mousePointer : entities.MousePointer;
-	private var option1 : entities.Option;
+	private var mousePointer : gui.MousePointer;
+	private var option1 : gui.Option;
 	
 	override public function new () : Void {
 		super();
 		
-		mousePointer = new entities.MousePointer(0, 0);
-		option1 = new entities.Option(20, 100, "Take me back!");
+		mousePointer = new gui.MousePointer(0, 0);
+		option1 = new gui.Option(20, 100, "Take me back!");
 	}
 	
 	override public function begin () : Void {

@@ -6,7 +6,16 @@ This project is an attempt at creating a simple way of adding a graphical user i
 
 Currently it is not exactly graphical, although it offers the functionality necessary for making a title screen, for example.
 
-This repository builds to an example with two scenes and a total of three options, two of which allow for chaning between scenes.
+This repository builds to an example with two scenes and a total of three options, two of which allow for changing between scenes.
+
+Developed and tested on:
+* Haxe 3.1.1
+* HaxePunk 2.5.2
+* lime 0.9.6
+* lime-tools 1.3.0
+* openfl 1.3.0
+
+It should work for mobile targets as well as it does for the desktop ones.
 
 ## How it works
 

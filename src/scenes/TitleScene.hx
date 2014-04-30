@@ -4,16 +4,16 @@ import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 
 class TitleScene extends Scene {
-	private var mousePointer : entities.MousePointer;
-	private var option1 : entities.Option;
-	private var option2 : entities.Option;
+	private var mousePointer : gui.MousePointer;
+	private var option1 : gui.Option;
+	private var option2 : gui.Option;
 	
 	override public function new () : Void {
 		super();
 		
-		mousePointer = new entities.MousePointer( 200, 200 );
-		option1 = new entities.Option( 20, 100, "Take me to the next scene." );
-		option2 = new entities.Option( 20, 140, "This is option calls a trace." );
+		mousePointer = new gui.MousePointer( 200, 200 );
+		option1 = new gui.Option( 20, 100, "Take me to the next scene." );
+		option2 = new gui.Option( 20, 140, "This is option calls a trace." );
 	}
 	
 	override public function begin () : Void {
