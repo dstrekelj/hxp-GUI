@@ -28,7 +28,7 @@ class MousePointer extends Entity {
 	public function handle ( option : Option ) : Bool {
 		var e : Entity = collideWith(option, x, y);
 		
-		if (e != null && Input.mouseDown) {
+		if (e != null && Input.mousePressed) {
 			return true;
 		} else {
 			return false;
