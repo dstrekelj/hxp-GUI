@@ -6,8 +6,8 @@ import com.haxepunk.graphics.Text;
 class TextField extends Entity {
 	private var textFieldText : Text;
 	
-	public function new ( x : Int, 
-						  y : Int, 
+	public function new ( x : Float, 
+						  y : Float, 
 						  text : String,
 						 ?size : Int = 16,
 						 ?align : String = "top-left",
