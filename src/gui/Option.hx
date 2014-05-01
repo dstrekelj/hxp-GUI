@@ -20,7 +20,6 @@ class Option extends Entity {
 		
 		graphic = optionText;
 		
-		/*setHitboxTo(graphic);*/
 		setAlignment(align);
 		type = "option";
 		
