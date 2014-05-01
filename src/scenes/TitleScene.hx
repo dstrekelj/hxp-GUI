@@ -24,6 +24,16 @@ class TitleScene extends Scene {
 		add(option2);
 		add(textField1);
 		
+		add (new gui.Option(50, 200, "top-left", null, "top-left", true));
+		add (new gui.Option(100, 220, "top", null, "top", true));
+		add (new gui.Option(150, 240, "top-right", null, "top-right", true));
+		add (new gui.Option(200, 200, "center-left", null, "center-left", true));
+		add (new gui.Option(250, 220, "center", null, "center", true));
+		add (new gui.Option(300, 240, "center-right", null, "center-right", true));
+		add (new gui.Option(350, 200, "bottom-left", null, "bottom-left", true));
+		add (new gui.Option(400, 220, "bottom", null, "bottom", true));
+		add (new gui.Option(450, 240, "bottom-right", null, "bottom-right", true));
+		
 		super.begin();
 	}
 	
