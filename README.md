@@ -1,12 +1,8 @@
-# hxp-GUI
+# hxp-GUI 0.2.x
 
 ## About
 
-This project is an attempt at creating a simple way of adding a graphical user interface to a HaxePunk project.
-
-Currently it is not exactly graphical, although it offers the functionality necessary for making a title screen, for example.
-
-This repository builds to an example with two scenes and a total of three options, two of which allow for changing between scenes.
+hxp-GUI is an attempt at creating a simple way of adding a graphical user interface to a HaxePunk project.
 
 Developed and tested on:
 * Haxe 3.1.1
@@ -15,12 +11,22 @@ Developed and tested on:
 * lime-tools 1.3.0
 * openfl 1.3.0
 
-It should work for mobile targets as well as it does for the desktop ones.
+It should work for mobile targets as well as desktop ones.
+
+Thanks go out to Lythom, whose work on HaxePunk-gui inspired this project.
+
+## Changelog / What's new?
+
+As version 0.2.x, the entirety of the project was rewritten and restructured.
 
 ## How it works
 
-The `MousePointer` class is used to create an `Entity` which poses as the user's mouse pointer on the `Scene`.
+`CEvent` is a custom Event class, currently not in any way different from the class it extends. It's there because I feel like I may need to add to it in the future, but at this point in time it could be dropped for a regular flash.events.Event class.
 
-The `Option` class is used to create an `Entity` which has its `graphic` property set to a string (with the use of the  `com.haxepunk.graphics.Text` class).
+`Control` is the parent class to all control classes. It implements IEventDispatcher and defines event dispatcher and listener methods.
 
-Both the `MousePointer` and the `Option` class have their own hitboxes. When they collide and the mouse button is pressed, the `handle()` function in the `MousePointer` class returns `true`, else it returns `false`. This way it is possible to use conditional statements in order to adjust control flow.
+`Button` describes a control element and therefore extends the Control class.
+
+`Label` extends Entity and describes a simple text field.
+
+An unfinished three-button example is available in the TitleScene class. Clicking the first button increments a click counter displayed by a label. The second button turns label visibility to true / false. The third button resets the click counter to zero.
