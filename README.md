@@ -1,4 +1,4 @@
-# hxp-GUI 0.2.x
+# hxp-GUI 0.2.0
 
 ## About
 
