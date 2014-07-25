@@ -6,25 +6,52 @@ import com.haxepunk.Entity;
 import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 import com.haxepunk.graphics.Image;
+import com.haxepunk.graphics.Text;
 import com.haxepunk.utils.Input;
 
 import flash.events.MouseEvent;
 
 class Button extends Control {
-	public static inline var MOUSE_DOWN : String = "mouse_down";
+	/** Button label. Changing the label updates the button visuals.  */
+	@:isVar public var label (get, set) : String;
+	private inline function get_label () : String { return label; }
+	private inline function set_label (value : String) : String {
+		graphic.destroy();
+		graphic = new Text(value, _textOptions);
+		setHitboxTo(graphic);
+		setRoot(alignment);
+		return label = value;
+	}
 	
-	public function new (x : Float = 0, y : Float = 0, width : Int = 0, height : Int = 0) : Void {
+	/**
+	 * Constructor. Creates news labeled Button object at x, y position, of
+	 * passed width and height.
+	 * @param	label		Button label text.
+	 * @param	x			Button X position on scene.
+	 * @param	y			Button Y position on scene.
+	 * @param	?alignment	Button alignment from 'root' position. For
+	 *						example, the default TOP_LEFT alignment sets the
+     *						origin ('root') of the graphic and hitbox to the
+	 *						top left corner	of the button.
+	 * @param	?size		Button label font size, defaults to 16.
+	 * @param	?width		Button width, defaults to label text width.
+	 * @param	?height		Button height, defaults to label text height.
+	 */
+	public function new (label : String = "Button", x : Float = 0, y : Float = 0, ?alignment : Alignment = TOP_LEFT, ?newSize : Int = 16, ?width : Int = 0, ?height : Int = 0) : Void {
 		super(x, y, width, height);
 		
-		setHitbox(width, height);
+		this.alignment = alignment;
 		
-		graphic = Image.createRect(width, height);
+		_textOptions = {size : newSize};
+		
+		graphic = new Text(label, _textOptions);
+		setHitboxTo(graphic);
+
+		setRoot(alignment);
 	}
 	
 	override public function added () : Void {
 		super.added();
-		
-		if (HXP.stage != null) HXP.stage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 	}
 	
 	override public function update () : Void {
@@ -33,13 +60,7 @@ class Button extends Control {
 	
 	override public function removed () : Void {
 		super.removed();
-		
-		if (HXP.stage != null) HXP.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 	}
 	
-	private function onMouseDown ( e : MouseEvent = null ) : Void {
-		if (collidePoint(x, y, Input.mouseX + HXP.camera.x, Input.mouseY + HXP.camera.y)) {
-			dispatchEvent(new CEvent(MOUSE_DOWN));
-		}
-	}
+	private var _textOptions : TextOptions;
 }
