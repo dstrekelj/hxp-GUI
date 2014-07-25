@@ -1,4 +1,4 @@
-# hxp-GUI 0.2.0
+# hxp-GUI 0.2.1
 
 ## About
 
@@ -17,7 +17,40 @@ Thanks go out to Lythom, whose work on HaxePunk-gui inspired this project.
 
 ## Changelog / What's new?
 
-As version 0.2.x, the entirety of the project was rewritten and restructured.
+As version 0.2.0, the entirety of the project was rewritten and restructured.
+
+### Version 0.2.1
+
+**CEvent.hx**
+* Added `public var senderID` - it is now possible to pass the
+dispatcher's ID when dispatching custom events. The ID is stored in
+`senderID` and can be read from in order to identify the event sender.
+Useful when a single function is listening for events from mutliple
+dispatchers.
+* Added comments.
+
+**Button.hx**
+* Added `public var label` - `Button` objects have text labels as
+graphics. Changing the `label` variable automatically updates the
+object's visuals.
+* Added `alignment` parameter to constructor - see **Control.hx**.
+* Added `newSize` parameter - it is now possible to specify the font
+size of `Button` object label text.
+* Added `private var _textOptions` - stores label text information, such
+as font size.
+* Added comments.
+
+**Control.hx**
+* Added `enum abstract Alignment(String)` - defines values used in
+`setRoot`.
+* Added `MOUSE_DOWN` and `MOUSE UP` event types.
+* Added `public var ID` - stores `Control` object (or subcalls object)
+ID. See **CEvent.hx**.
+* Added `public var alignment` - stores Alignment value.
+* Bugfix to MOUSE_OVER event type.
+* Added `public function setRoot` method - sets object root position
+(alignment) depending on method parameter. See code comments.
+* Added comments.
 
 ## How it works
 
