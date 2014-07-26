@@ -95,9 +95,9 @@ class Control extends Entity implements IEventDispatcher {
 	 * origin of the object and its hitbox to the object's center. In the
 	 * the illustration, x marks the default object origin.
 	 *
-	 *		x───────┐										┌───────┐
-	 *		│		│	--->	Alignment.CENTER	--->	│	x	│
-	 *		└───────┘										└───────┘
+	 *		X░░░░										░░░░░
+	 *		░░░░░	--->	Alignment.CENTER	--->	░░X░░
+	 *		░░░░░										░░░░░
 	 */
 	public function setRoot (root : Alignment) : Void {
 		switch (root) {
