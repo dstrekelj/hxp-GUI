@@ -3,6 +3,7 @@ package gui;
 import gui.CEvent;
 
 import com.haxepunk.Entity;
+import com.haxepunk.graphics.Image;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
 
@@ -39,7 +40,12 @@ class Control extends Entity implements IEventDispatcher {
 	private inline function set_ID (value : String) : String { return ID = value; }	
 	
 	/** Control object alignment. */
-	public var alignment : Alignment;
+	@:isVar public var alignment (get, set) : Alignment;
+	private inline function get_alignment () : Alignment { return alignment; }
+	private inline function set_alignment (value : Alignment) : Alignment {
+		setRoot(value);
+		return alignment = value;
+	}
 	
 	/**
 	 * Constructor used by Control subclasses. Creates new Control object at x,
@@ -49,16 +55,18 @@ class Control extends Entity implements IEventDispatcher {
 	 * @param	width	Control width.
 	 * @param	height	Control height.
 	 */
-	public function new (x : Float = 0, y : Float = 0, width : Int = 0, height : Int = 0) : Void {
+	public function new (x : Float = 0, y : Float = 0, alignment : Alignment = TOP_LEFT, width : Int = 0, height : Int = 0) : Void {
 		super(x, y);
 		
 		this.width = width;
 		this.height = height;
 		
+		graphic = Image.createRect(10, 10, 0x0000ff, 0);
+		
 		this.type = "control";
 		
 		this.ID = null;
-		this.alignment = Alignment.TOP_LEFT;
+		setRoot(alignment);
 		
 		_eventDispatcher = new EventDispatcher();
 	}
