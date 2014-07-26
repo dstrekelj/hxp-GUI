@@ -1,4 +1,4 @@
-# hxp-GUI 0.2.1
+# hxp-GUI 0.2.2
 
 ## About
 
@@ -18,6 +18,24 @@ Thanks go out to Lythom, whose work on HaxePunk-gui inspired this project.
 ## Changelog / What's new?
 
 As version 0.2.0, the entirety of the project was rewritten and restructured.
+
+### Version 0.2.2
+
+**Control.hx**
+* `public var alignment` now uses get/set - alignment of object automatically updated with `alignment` change
+
+**Label.hx**
+* `Label` now a `Control` subclass
+* `public var text` now uses get/set - object properties (graphic, alignment) automatically updated with `text` change
+
+**Main.hx**
+* Added "global" static variables storing available scenes
+
+**DemoScene.hx**
+* New GUI demonstration
+
+**TitleScene.hx**
+* Adjusted to reflect the addition of DemoScene
 
 ### Version 0.2.1
 
