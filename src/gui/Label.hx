@@ -11,7 +11,7 @@ class Label extends Control {
 	public function get_text () : String { return text; }
 	public function set_text (value : String) : String {
 		graphic.destroy();
-		graphic = new Text(value, _textOptions);
+		graphic = new Text(value, 0, 0, 0, 0, _textOptions);
 		setHitboxTo(graphic);
 		setRoot(alignment);
 		return text = value;
@@ -24,7 +24,7 @@ class Label extends Control {
 		
 		_textOptions = {size : newSize};
 		
-		graphic = new Text(text, _textOptions);
+		graphic = new Text(text, 0, 0, 0, 0, _textOptions);
 		setHitboxTo(graphic);
 		
 		setRoot(alignment);
