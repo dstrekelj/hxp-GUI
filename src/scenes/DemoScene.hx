@@ -36,7 +36,6 @@ class DemoScene extends Scene
 		for (i in 0...4)
 		{
 			menu.push(new Button(ButtonMap[i], menuX, menuY, CENTER, 28));
-			//menu[i].ID = ButtonMap[i];
 			menuY += 42;			
 		}
 		menu[0].addEventListener(Control.MOUSE_DOWN, labelHandler);
