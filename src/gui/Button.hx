@@ -17,7 +17,7 @@ class Button extends Control {
 	private inline function get_label () : String { return label; }
 	private inline function set_label (value : String) : String {
 		graphic.destroy();
-		graphic = new Text(value, _textOptions);
+		graphic = new Text(value, 0, 0, 0, 0, _textOptions);
 		setHitboxTo(graphic);
 		setRoot(alignment);
 		return label = value;
@@ -26,7 +26,7 @@ class Button extends Control {
 	/**
 	 * Constructor. Creates news labeled Button object at x, y position, of
 	 * passed width and height.
-	 * @param	label		Button label text.
+	 * @param	label		Button label text. Becomes control ID by default.
 	 * @param	x			Button X position on scene.
 	 * @param	y			Button Y position on scene.
 	 * @param	?alignment	Button alignment from 'root' position. For
@@ -40,11 +40,12 @@ class Button extends Control {
 	public function new (label : String = "Button", x : Float = 0, y : Float = 0, ?alignment : Alignment = TOP_LEFT, ?newSize : Int = 16, ?width : Int = 0, ?height : Int = 0) : Void {
 		super(x, y, width, height);
 		
+		this.ID = label;
 		this.alignment = alignment;
 		
 		_textOptions = {size : newSize};
 		
-		graphic = new Text(label, _textOptions);
+		graphic = new Text(label, 0, 0, 0, 0, _textOptions);
 		setHitboxTo(graphic);
 
 		setRoot(alignment);

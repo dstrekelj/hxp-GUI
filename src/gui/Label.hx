@@ -11,20 +11,24 @@ class Label extends Control {
 	public function get_text () : String { return text; }
 	public function set_text (value : String) : String {
 		graphic.destroy();
-		graphic = new Text(value);
+		graphic = new Text(value, _textOptions);
 		setHitboxTo(graphic);
 		setRoot(alignment);
 		return text = value;
 	}
 	
-	public function new (text : String, x : Float, y : Float, ?alignment : Alignment = CENTER_LEFT, ?width : Int = 0, ?height : Int = 0) : Void {
+	public function new (text : String, x : Float, y : Float, ?alignment : Alignment = CENTER_LEFT, ?newSize : Int = 16, ?width : Int = 0, ?height : Int = 0) : Void {
 		super(x, y, alignment, width, height);
 		
 		this.alignment = alignment;
 		
-		graphic = new Text(text);
+		_textOptions = {size : newSize};
+		
+		graphic = new Text(text, _textOptions);
 		setHitboxTo(graphic);
 		
 		setRoot(alignment);
 	}
+	
+	private var _textOptions : TextOptions;
 }
