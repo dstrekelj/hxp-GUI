@@ -33,6 +33,7 @@ class Control extends Entity implements IEventDispatcher {
 	public static inline var MOUSE_OVER	: String = "mouse_over";
 	public static inline var MOUSE_DOWN	: String = "mouse_down";
 	public static inline var MOUSE_UP	: String = "mouse_up";
+	public static inline var MOUSE_CLICK : String = "mouse_click";
 	
 	/** Control object ID, null if undefined. */	
 	@:isVar public var ID (get, set) : String;
@@ -77,6 +78,7 @@ class Control extends Entity implements IEventDispatcher {
 		if (HXP.stage != null) {
 			HXP.stage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 			HXP.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+			HXP.stage.addEventListener(MouseEvent.CLICK, onMouseClick);
 		}
 	}
 	
@@ -94,6 +96,7 @@ class Control extends Entity implements IEventDispatcher {
 		if (HXP.stage != null) {
 			HXP.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 			HXP.stage.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+			HXP.stage.removeEventListener(MouseEvent.CLICK, onMouseClick);
 		}
 	}
 	
@@ -163,6 +166,12 @@ class Control extends Entity implements IEventDispatcher {
 	private function onMouseUp (e : MouseEvent = null) : Void {
 		if (collidePoint(x, y, Input.mouseX + HXP.camera.x, Input.mouseY + HXP.camera.y)) {
 			dispatchEvent(new CEvent(MOUSE_UP, ID));
+		}
+	}
+	
+	private function onMouseClick (e : MouseEvent = null) : Void {
+		if (collidePoint(x, y, Input.mouseX + HXP.camera.x, Input.mouseY + HXP.camera.y)) {
+			dispatchEvent(new CEvent(MOUSE_CLICK, id));
 		}
 	}
 	
