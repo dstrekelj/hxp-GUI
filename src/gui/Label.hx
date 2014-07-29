@@ -23,7 +23,7 @@ class Label extends Control {
 		super(x, y, alignment, width, height);
 		
 		this.alignment = alignment;
-#if flash
+#if (flash || html5)
 		var tta : TextFormatAlign;
 		switch(textAlign) {
 			case ta if (ta == "left"):		tta = TextFormatAlign.LEFT;
